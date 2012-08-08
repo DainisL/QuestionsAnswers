@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for?(:title) ? yield(:title) : "Aptauja" %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <% end %>
+      <%= content_tag :h1, yield(:title) if show_title? %>
+
+
+      <% if current_user %>
+    Logged in as <%= current_user.email %>
+    <%= link_to "Log out", log_out_path %>
+    <% else %>
+    <%= link_to "Sign up", sign_up_path %>
+    <%= link_to "Log in", log_in_path %>  
+    <% end %>
+  </div>
+  <div id="page">
+    <%= yield %>
+  </div>
+   
+    </div>
+  </body>
+</html>

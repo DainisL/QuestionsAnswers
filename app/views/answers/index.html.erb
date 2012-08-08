@@ -1,0 +1,28 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Question</th>
+    <th>Answer type</th>
+    <th>Create date</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.title %></td>
+    <td><%= question.question %></td>
+    <td><%= question.answer_type %></td>
+    <td><%= question.create_date %></td>
+    <% if current_user %>
+    <% if respons.user_id == current_user.id %>
+   <% end %>
+    <td><%= link_to 'Answer',new_answer_path(:question_id => question.id) %></td>
+
+    <% end %>
+  </tr>
+<% end %>
+</table>

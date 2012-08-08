@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Question:</b>
+  <%= @question.question %>
+</p>
+
+<p>
+  <b>Answer:</b>
+  <%= @answer.answer %>
+</p>
+
+<p>
+  <b>Answertype:</b>
+  <%= @question.answer_type %>
+</p>
+
+<p>
+  <b>Create date:</b>
+  <%= @answer.create_date %>
+</p>
+
+
+<%= link_to 'Questions', admin_surveys_path %>

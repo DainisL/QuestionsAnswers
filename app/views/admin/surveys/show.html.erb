@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @survey.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_survey_path(@survey) %> |
+<%= link_to 'Back', admin_surveys_path %>

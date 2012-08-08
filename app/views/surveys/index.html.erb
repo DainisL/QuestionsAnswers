@@ -1,0 +1,24 @@
+<h1>Listing surveys</h1>
+
+<table>
+  <tr>
+    <th><h1>Survey</h1></th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @surveys.each do |survey| %>
+  <tr>
+     
+    <td><%= survey.title %></td>
+    <% if current_user %> 
+    <td>
+      <button class="btn" type="submit">   <%= link_to 'Reply', questions_path(:survey_id => survey.id) %>
+        </button>
+      </td>
+     <br />
+  </tr>
+  <% end %>
+<% end %>
+</table>
