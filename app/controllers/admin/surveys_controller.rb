@@ -11,22 +11,13 @@ class Admin::SurveysController < Admin::AdministratorController
   def show
     @survey = Survey.find(params[:id])
     @answers = Answer.all
-
-    respond_to do |format|
-      format.html # show.html.erb
-      
-    end
+    
   end
 
   # GET /surveys/new
   def new
     @survey = Survey.new
 
-
-    respond_to do |format|
-      format.html # new.html.erb
-      
-    end
   end
 
   # GET /surveys/1/edit
@@ -70,10 +61,6 @@ class Admin::SurveysController < Admin::AdministratorController
     @survey = Survey.find(params[:id])
     @survey.destroy
 
-    respond_to do |format|
-      format.html { redirect_to [:admin, surveys_url] }
-    
-    end
   end
   
 end

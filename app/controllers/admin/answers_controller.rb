@@ -14,10 +14,6 @@ class Admin::AnswersController < Admin::AdministratorController
     @answer = Answer.find(params[:id])
     @question = @answer.question
 
-    respond_to do |format|
-      format.html # show.html.erb
-      
-    end
   end
 
   # GET /answers/new
@@ -25,10 +21,6 @@ class Admin::AnswersController < Admin::AdministratorController
     @answer = Answer.new
     @question = Question.find(params[:question_id])
 
-    respond_to do |format|
-      format.html # new.html.erb
-     
-    end
   end
 
   # GET /answers/1/edit
@@ -71,10 +63,5 @@ class Admin::AnswersController < Admin::AdministratorController
   def destroy
     @answer = Answer.find(params[:id])
     @answer.destroy
-
-    respond_to do |format|
-      format.html { redirect_to answers_url }
-      
-    end
   end
 end

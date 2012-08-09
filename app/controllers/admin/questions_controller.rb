@@ -55,10 +55,5 @@ layout "admin"
   def destroy
     @question = Question.find(params[:id])
     @question.destroy
-
-    respond_to do |format|
-      format.html { redirect_to [:admin, questions_url] }
-      
-    end
   end
 end

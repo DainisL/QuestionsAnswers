@@ -1,7 +1,8 @@
 class AnswersController < ApplicationController
-  # GET /answers
+  
   before_filter :current_user
   
+  # GET /answers
   def index
     @questions = Survey.find(params[:survey_id]).questions
   end
@@ -11,9 +12,6 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
     @question = @answer.question
 
-    respond_to do |format|
-      format.html # show.html.erb
-    end
   end
 
   # GET /answers/new

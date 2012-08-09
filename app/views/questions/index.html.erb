@@ -20,17 +20,13 @@
     <% if current_user %> 
         <% if is_answered?(question.id) < 0 %>
            <td>
-            <button class="btn" type="submit">
-              <%= link_to 'Answer',new_answer_path(:question_id => question.id ) %>
-              </button>
-            </td>
+           <%= link_to 'Answer',new_answer_path(:question_id => question.id ) %>
+           </td>
         <% end %>
     <% end %>
     
  <td>
-   <button class="btn" type="submit">
   <%= link_to 'Show', question %>
-  </button>
 </td>
   </tr>
 <% end %>
