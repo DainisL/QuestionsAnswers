@@ -24,7 +24,10 @@ end
 gem 'jquery-rails'
 gem 'annotate'
 gem "nifty-generators"
-gem 'rack-mini-profiler'
+#gem 'rack-mini-profiler'
+gem 'activeadmin'
+gem "meta_search"
+gem 'formtastic'
 
 
 # To use ActiveModel has_secure_password

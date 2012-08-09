@@ -1,11 +1,19 @@
-<%= semantic_form_for([:admin, @question]) do |f| %>
+<%= form_for(@question) do |f| %>
+  <% if @question.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this question from being saved:</h2>
 
-    <h2>Select Survey</h2>
+      <ul>
+      <% @question.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= @survey.title %>
+  <%= f.hidden_field :survey_id, :value => params[:survey_id] %>
 
-   <%= f.collection_select(:survey_id, Survey.all, :id, :title, :prompt => true) %>
-   <% f.hidden_field :survey_id, :value => params[:survey_id] %>
   <div class="field">
-    <br />
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>
@@ -13,12 +21,11 @@
     <%= f.label :question %><br />
     <%= f.text_area :question %>
   </div>
-   <br />
   <div class="field">
     <%= f.label :answer_type %><br />
     <%= f.select :answer_type, [["Number","integer"],["Text", "text"],["Combo Answer", "combo"]] %>
   </div>
-<br>
+
   <h2> Possible answers to separate |</h2>
   <div class="field">
     <%= f.label :possible_answers %><br />
@@ -30,7 +37,6 @@
     <%= f.label :create_date %><br />
     <%= f.datetime_select :create_date %>
   </div>
-  <br />
   <div class="actions">
     <%= f.submit %>
   </div>

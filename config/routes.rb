@@ -1,5 +1,9 @@
 Page::Application.routes.draw do
 
+  ActiveAdmin.routes(self)
+
+  devise_for :admin_users, ActiveAdmin::Devise.config
+
  # get "sessions/new"
   #get "users/new"
   root :to => "surveys#index"
@@ -16,12 +20,4 @@ Page::Application.routes.draw do
   get "sign_up" => "users#new", :as => "sign_up"
  # root :to => "users#new"
   
-
-  # Admin routs
-   namespace :admin do
-      root :to => 'surveys#index'
-      resources :surveys
-      resources :answers
-      resources :questions
-    end
  end
