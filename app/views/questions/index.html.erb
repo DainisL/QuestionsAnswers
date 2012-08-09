@@ -20,7 +20,9 @@
     <% if current_user %> 
         <% if is_answered?(question.id) < 0 %>
            <td>
+         <div class=" button"> 
            <%= link_to 'Answer',new_answer_path(:question_id => question.id ) %>
+         </div>
            </td>
         <% end %>
     <% end %>

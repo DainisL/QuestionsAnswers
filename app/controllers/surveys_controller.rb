@@ -6,9 +6,7 @@ before_filter :current_user
     def index
     @surveys = Survey.all
      
-      
     end
-  end
 
   # GET /surveys/1
   def show

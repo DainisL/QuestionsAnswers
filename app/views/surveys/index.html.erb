@@ -14,8 +14,9 @@
     <td><%= survey.title %></td>
     <% if current_user %> 
     <td>
+      <div class="button">
          <%= link_to 'Reply', questions_path(:survey_id => survey.id) %>
-        
+        </div>
       </td>
      <br />
   </tr>
