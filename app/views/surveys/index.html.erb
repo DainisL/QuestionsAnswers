@@ -10,8 +10,9 @@
 
 <% @surveys.each do |survey| %>
   <tr>
-     
+     <div class="text">
     <td><%= survey.title %></td>
+    </div>
     <% if current_user %> 
     <td>
       <div class="button">

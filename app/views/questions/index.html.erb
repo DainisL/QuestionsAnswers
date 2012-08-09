@@ -12,15 +12,16 @@
   </tr>
 
 <% @questions.each do |question| %>
-  <tr>
+  <tr><div></div class="text">
     <td><%= question.title %></td>
     <td><%= question.question %></td>
     <td><%= question.answer_type %></td>
     <td><%= question.create_date %></td>
+    </div>
     <% if current_user %> 
         <% if is_answered?(question.id) < 0 %>
            <td>
-         <div class=" button"> 
+         <div class="button">
            <%= link_to 'Answer',new_answer_path(:question_id => question.id ) %>
          </div>
            </td>
@@ -28,7 +29,9 @@
     <% end %>
     
  <td>
+  <div class="button">
   <%= link_to 'Show', question %>
+</div>
 </td>
   </tr>
 <% end %>
