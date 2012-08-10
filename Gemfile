@@ -20,13 +20,13 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
-
+gem 'paperclip', '~> 3.0'
 gem 'rack-mini-profiler'
 gem 'jquery-rails'
 gem 'annotate'
-gem "nifty-generators"
+gem 'nifty-generators'
 gem 'activeadmin'
-gem "meta_search"
+gem 'meta_search'
 
 
 # To use ActiveModel has_secure_password
