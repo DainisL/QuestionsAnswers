@@ -19,13 +19,13 @@
     <td><%= question.create_date %></td>
     </div>
     <% if current_user %>
-
         <% if is_answered?(question.id) == 0 %>
            <td>
-         <div class="button">
+        <div class="button">
            <%= link_to 'Answer',new_answer_path(:question_id => question.id ) %>
-         </div>
+        </div>
            </td>
+          
         <% end %>
     <% end %>
     
