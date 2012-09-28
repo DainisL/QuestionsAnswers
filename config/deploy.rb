@@ -18,39 +18,39 @@ ssh_options[:forward_agent] = true
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
-namespace :deploy do
+# namespace :deploy do
 
-  %w[start stop].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/#{stage}-#{application} #{command}"
-    end
-  end
-  #This is needed due strange unicorn shellscript bug, which is not restarting
-  %w[restart].each do |command|
-    desc "#{command} unicorn server"
-    task command, roles: :app, except: {no_release: true} do
-      run "/etc/init.d/#{stage}-#{application} stop"
-      sleep 5
-      run "/etc/init.d/#{stage}-#{application} start"
-    end
-  end
-  task :setup_config, roles: :app do
-    sudo "ln -nfs #{current_path}/config/#{stage}-#{application}.conf /etc/nginx/sites-enabled/#{stage}-#{application}"
-    sudo "ln -nfs #{current_path}/config/#{stage}-#{application}.sh /etc/init.d/#{stage}-#{application}"
-    run "mkdir -p #{shared_path}/config"
-  end
-  after "deploy:setup", "deploy:setup_config"
+#   %w[start stop].each do |command|
+#     desc "#{command} unicorn server"
+#     task command, roles: :app, except: {no_release: true} do
+#       run "/etc/init.d/#{stage}-#{application} #{command}"
+#     end
+#   end
+#   #This is needed due strange unicorn shellscript bug, which is not restarting
+#   %w[restart].each do |command|
+#     desc "#{command} unicorn server"
+#     task command, roles: :app, except: {no_release: true} do
+#       run "/etc/init.d/#{stage}-#{application} stop"
+#       sleep 5
+#       run "/etc/init.d/#{stage}-#{application} start"
+#     end
+#   end
+#   task :setup_config, roles: :app do
+#     sudo "ln -nfs #{current_path}/config/#{stage}-#{application}.conf /etc/nginx/sites-enabled/#{stage}-#{application}"
+#     sudo "ln -nfs #{current_path}/config/#{stage}-#{application}.sh /etc/init.d/#{stage}-#{application}"
+#     run "mkdir -p #{shared_path}/config"
+#   end
+#   after "deploy:setup", "deploy:setup_config"
 
-  desc "Make sure local git is in sync with remote."
-  task :check_revision, roles: :web do
-    unless `git rev-parse HEAD` == `git rev-parse origin/#{branch}`
-      puts "WARNING: HEAD is not the same as origin/#{branch}"
-      puts "Run `git push` to sync changes."
-      exit
-    end
-  end
-  before "deploy", "deploy:check_revision"
+#   desc "Make sure local git is in sync with remote."
+#   task :check_revision, roles: :web do
+#     unless `git rev-parse HEAD` == `git rev-parse origin/#{branch}`
+#       puts "WARNING: HEAD is not the same as origin/#{branch}"
+#       puts "Run `git push` to sync changes."
+#       exit
+#     end
+#   end
+#   before "deploy", "deploy:check_revision"
 
   
-end
+# end
