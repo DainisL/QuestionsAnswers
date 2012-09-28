@@ -1,9 +1,10 @@
-working_directory "/home/ubuntu/www/QuestionsAnswers"
-pid "/home/ubuntu/www/QuestionsAnswers/tmp/pids/unicorn.pid"
-stderr_path "/home/ubuntu/www/QuestionsAnswers/unicorn/err.log"
-stdout_path "/home/ubuntu/www/QuestionsAnswers/unicorn/out.log"
+root = ""
+working_directory root
+pid "/home/ubuntu/www/QuestionsAnswers/production/current/tmp/pids/unicorn.pid"
+stderr_path "/home/ubuntu/www/QuestionsAnswers/production/current/unicorn/err.log"
+stdout_path "/home/ubuntu/www/QuestionsAnswers/production/current/unicorn/out.log"
 
 listen "/tmp/unicorn.todo.sock"
 preload_app true
-worker_processes 2
+worker_processes 3
 timeout 30
