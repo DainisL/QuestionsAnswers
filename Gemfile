@@ -20,7 +20,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem 'rvm-capistrano'
 gem 'capistrano'
+gem 'capistrano-ext'
 gem 'paperclip', '~> 3.0'
 gem 'rack-mini-profiler'
 gem 'jquery-rails'
