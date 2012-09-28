@@ -7,6 +7,7 @@ require 'capistrano/ext/multistage'
 #main details
 
 server "ec2-54-247-62-185.eu-west-1.compute.amazonaws.com", :web, :app, :db, primary: true    
+set :user, "ubuntu"
 set :application, "QuestionsAnswers"
 set :deploy_via, :remote_cache
 set :use_sudo, false
@@ -15,7 +16,6 @@ set :scm, "git"
 set :repository, "git@github.com:DainisL/QuestionsAnswers.git"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
-set :branch, "master"
 
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
