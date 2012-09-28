@@ -1,9 +1,9 @@
 # RVM bootstrap
 require "bundler/capistrano"
 require "rvm/capistrano"
-set :stages, %w(production staging)
-set :default_stage, "production"
-require 'capistrano/ext/multistage'
+# set :stages, %w(unicorn staging)
+# set :default_stage, "unicorn"
+# require 'capistrano/ext/multistage'
 # main details
 
 server "ec2-54-247-62-185.eu-west-1.compute.amazonaws.com", :web, :app, :db, primary: true    
@@ -57,5 +57,5 @@ after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
   
 # end
-after 'deploy:update_code', 'bundler:symlink_bundled_gems'
-after 'deploy:update_code', 'bundler:install'
+# after 'deploy:update_code', 'bundler:symlink_bundled_gems'
+# after 'deploy:update_code', 'bundler:install'
