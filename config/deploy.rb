@@ -3,7 +3,7 @@ require "bundler/capistrano"
 $:.unshift(File.expand_path("~/.rvm/lib"))
 require "rvm/capistrano"
 set :rvm_ruby_string, '1.9.3'
-set :rvm_type, :user
+set :rvm_type, :ubuntu
 set :stages, %w(production staging)
 set :default_stage, "production"
 require 'capistrano/ext/multistage'
